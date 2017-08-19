@@ -13,6 +13,7 @@
 		D20A77F61F0E7F1400F24E6F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20A77F41F0E7EFE00F24E6F /* ViewController.swift */; };
 		D2A9913C1F4870A200851EE9 /* BezierPathDelaunay.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A9913B1F4870A200851EE9 /* BezierPathDelaunay.swift */; };
 		D2A9913D1F4870A200851EE9 /* BezierPathDelaunay.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A9913B1F4870A200851EE9 /* BezierPathDelaunay.swift */; };
+		D2A991401F48B8DA00851EE9 /* DelaunaySwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A991331F4864B300851EE9 /* DelaunaySwift.framework */; };
 		D2C44EC41F0A3AD500C8F108 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C44EC31F0A3AD500C8F108 /* AppDelegate.swift */; };
 		D2C44EC81F0A3AD500C8F108 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2C44EC71F0A3AD500C8F108 /* Assets.xcassets */; };
 		D2C44ECB1F0A3AD500C8F108 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2C44EC91F0A3AD500C8F108 /* Main.storyboard */; };
@@ -117,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2A991401F48B8DA00851EE9 /* DelaunaySwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
