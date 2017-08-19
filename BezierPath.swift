@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import DelaunaySwift 
 
 public struct Point {
     public var x:Double
@@ -229,19 +228,6 @@ func bezierQuadraticPointAt(_ points: [Point], t:Double ) -> Point {
             }
         }
         // finish    
-    } 
-    
-    open func triangles() -> [Triangle] {        
-        
-        var vertices = [Vertex]()
-
-        for segment in self.segments {
-            for point in segment.points {
-                vertices.append(Vertex(point))
-            }
-        }
-        
-        return Delaunay().triangulate(vertices)
     } 
 }
 
