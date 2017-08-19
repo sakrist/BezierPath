@@ -9,6 +9,7 @@
  Segments can be used to form shape. Shapes triangulated with Delaunay.
 
 
+ <img src="https://raw.githubusercontent.com/sakrist/BezierPathSwift/master/Screenshot.png" width="50%">
 
 
 
