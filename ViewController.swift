@@ -35,7 +35,13 @@ class ViewController: OSViewController {
         bezie.convert(path)
 
         
+        let start = Date().timeIntervalSince1970
+        
         let triangles = bezie.triangles()
+        
+        let end = Date().timeIntervalSince1970
+        print("time: \(end - start)")
+        
         print("triangles \(triangles.count) ")
         
         let layer:CALayer? = self.view.layer

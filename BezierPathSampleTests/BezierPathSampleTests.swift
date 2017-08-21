@@ -12,8 +12,6 @@ import DelaunaySwift
 
 class BezierPathSampleTests: XCTestCase {
     
-    var vertices = [Vertex]()
-    
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -40,19 +38,21 @@ class BezierPathSampleTests: XCTestCase {
         let bezie:BezierPath = BezierPath.init()
         bezie.convert(path)
         
-        for segment in bezie.segments {
-            for point in segment.points {
-                vertices.append(Vertex(point))
-            }
-        }
-        
+        _ = bezie.triangles()
     }
     
     func testPerformanceExample() {
+        let path:OSBezierPath = OSBezierPath.init(roundedRect: CGRect.init(x: 10, y: 10, width: 150, height: 130), cornerRadius: 20)
+        path.appendOval(in: CGRect.init(x: 60, y: 60, width: 100, height: 100))
+        
+        let bezie:BezierPath = BezierPath.init()
+        bezie.convert(path)
+        
+        
         // This is an example of a performance test case.
         self.measure {
             // Put the code you want to measure the time of here.
-            _ = Delaunay().triangulate(self.vertices)
+            _ = bezie.triangles()
         }
     }
     
