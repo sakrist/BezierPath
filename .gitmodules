@@ -1,4 +1,0 @@
-[submodule "DelaunaySwift"]
-	path = DelaunaySwift
-url=https://sakrist@bitbucket.org/sakrist/delaunay.git
-	branch = master
