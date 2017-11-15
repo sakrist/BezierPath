@@ -1,0 +1,3 @@
+[submodule "Delaunay"]
+	path = Delaunay
+	url = https://sakrist@bitbucket.org/sakrist/delaunay.git
