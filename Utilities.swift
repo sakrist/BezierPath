@@ -16,7 +16,7 @@
     public typealias OSViewController = NSViewController
 #endif
 
-import DelaunaySwift
+import Delaunay
 
 extension Triangle {
     func toPath() -> CGPath {
@@ -38,8 +38,8 @@ extension Triangle {
 }
 
 public extension Vertex {
-    public init(_ point:Point) {
-        self.init(x:point.x, y:point.y)
+    public init(_ point:Point, _ i:Int) {
+        self.init(x:point.x, y:point.y, i:i)
     }
 }
 

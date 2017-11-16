@@ -7,17 +7,18 @@
 //
 
 import Foundation
-import DelaunaySwift 
+import Delaunay
 
 
 extension BezierPath {
     open func triangles() -> [Triangle] {        
         
         var vertices = [Vertex]()
-        
+        var index:Int = 0
         for segment in self.segments {
             for point in segment.points {
-                vertices.append(Vertex(point))
+                vertices.append(Vertex(point, index))
+                index += 1
             }
         }
         

@@ -12,7 +12,7 @@ import Cocoa
 import UIKit
 #endif
 
-import DelaunaySwift
+import Delaunay
 
 class ViewController: OSViewController {
 
@@ -23,7 +23,7 @@ class ViewController: OSViewController {
                 
         let path:OSBezierPath = OSBezierPath.init(roundedRect: CGRect.init(x: 10, y: 10, width: 150, height: 130), cornerRadius: 50)
         
-//        path.appendOval(in: CGRect.init(x: 100, y: 100, width: 150, height: 130))
+        path.appendOval(in: CGRect.init(x: 100, y: 100, width: 150, height: 130))
 //        path.appendOval(in: CGRect.init(x: 50, y: 50, width: 150, height: 130))
 //        path.appendOval(in: CGRect.init(x: 150, y: 150, width: 150, height: 130))
 //        path.appendOval(in: CGRect.init(x: 250, y: 50, width: 150, height: 130))

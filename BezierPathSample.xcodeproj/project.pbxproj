@@ -11,9 +11,10 @@
 		D20A77F21F0E763600F24E6F /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20A77F01F0E75B000F24E6F /* Utilities.swift */; };
 		D20A77F51F0E7F1300F24E6F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20A77F41F0E7EFE00F24E6F /* ViewController.swift */; };
 		D20A77F61F0E7F1400F24E6F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20A77F41F0E7EFE00F24E6F /* ViewController.swift */; };
+		D26347731FBD077D00226303 /* Delaunay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D26347661FBD074B00226303 /* Delaunay.framework */; };
+		D26347761FBD079B00226303 /* Delaunay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D26347601FBD074B00226303 /* Delaunay.framework */; };
 		D2A9913C1F4870A200851EE9 /* BezierPathDelaunay.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A9913B1F4870A200851EE9 /* BezierPathDelaunay.swift */; };
 		D2A9913D1F4870A200851EE9 /* BezierPathDelaunay.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A9913B1F4870A200851EE9 /* BezierPathDelaunay.swift */; };
-		D2A991401F48B8DA00851EE9 /* DelaunaySwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A991331F4864B300851EE9 /* DelaunaySwift.framework */; };
 		D2C44EC41F0A3AD500C8F108 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C44EC31F0A3AD500C8F108 /* AppDelegate.swift */; };
 		D2C44EC81F0A3AD500C8F108 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2C44EC71F0A3AD500C8F108 /* Assets.xcassets */; };
 		D2C44ECB1F0A3AD500C8F108 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2C44EC91F0A3AD500C8F108 /* Main.storyboard */; };
@@ -25,44 +26,64 @@
 		D2CA806D1F0C36B00030826F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2CA806B1F0C36B00030826F /* LaunchScreen.storyboard */; };
 		D2CA80781F0C36B00030826F /* BezierPathSampleiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CA80771F0C36B00030826F /* BezierPathSampleiOSTests.swift */; };
 		D2CA80801F0C3A2B0030826F /* BezierPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C44EE11F0A3B0A00C8F108 /* BezierPath.swift */; };
-		D2CB3C611F12C3C500330A21 /* DelaunaySwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2B745841F0E6C7900B08882 /* DelaunaySwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		D2A991301F4864B300851EE9 /* PBXContainerItemProxy */ = {
+		D263475D1FBD074B00226303 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = D2B7457E1F0E6C7900B08882 /* DelaunaySwift.xcodeproj */;
+			containerPortal = D2B7457E1F0E6C7900B08882 /* Delaunay.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = C41B5BE91C3FFDF8006B601E;
 			remoteInfo = Triangulation;
 		};
-		D2A991321F4864B300851EE9 /* PBXContainerItemProxy */ = {
+		D263475F1FBD074B00226303 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = D2B7457E1F0E6C7900B08882 /* DelaunaySwift.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = D2A9912A1F4863B600851EE9;
-			remoteInfo = "DelaunaySwift (MacOS)";
-		};
-		D2A991341F4864B900851EE9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D2B7457E1F0E6C7900B08882 /* DelaunaySwift.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = D2A9911C1F4863B600851EE9;
-			remoteInfo = "DelaunaySwift (MacOS)";
-		};
-		D2B745831F0E6C7900B08882 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D2B7457E1F0E6C7900B08882 /* DelaunaySwift.xcodeproj */;
+			containerPortal = D2B7457E1F0E6C7900B08882 /* Delaunay.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = C41B5BC11C3FF148006B601E;
-			remoteInfo = DelaunaySwift;
+			remoteInfo = Delaunay;
 		};
-		D2B745851F0E6C7900B08882 /* PBXContainerItemProxy */ = {
+		D26347611FBD074B00226303 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = D2B7457E1F0E6C7900B08882 /* DelaunaySwift.xcodeproj */;
+			containerPortal = D2B7457E1F0E6C7900B08882 /* Delaunay.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = C41B5BCB1C3FF148006B601E;
-			remoteInfo = DelaunaySwiftTests;
+			remoteInfo = DelaunayTests;
+		};
+		D26347631FBD074B00226303 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D2B7457E1F0E6C7900B08882 /* Delaunay.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D204F77D1FBA64480087FB56;
+			remoteInfo = TriangulationTest;
+		};
+		D26347651FBD074B00226303 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D2B7457E1F0E6C7900B08882 /* Delaunay.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2A9912A1F4863B600851EE9;
+			remoteInfo = "Delaunay (macOS)";
+		};
+		D26347671FBD074B00226303 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D2B7457E1F0E6C7900B08882 /* Delaunay.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2EDF8851FBB5BB5009993CA;
+			remoteInfo = DelaunayTestsMac;
+		};
+		D263476A1FBD077600226303 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D2B7457E1F0E6C7900B08882 /* Delaunay.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2A9911C1F4863B600851EE9;
+			remoteInfo = "Delaunay (macOS)";
+		};
+		D26347741FBD079700226303 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D2B7457E1F0E6C7900B08882 /* Delaunay.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = C41B5BC01C3FF148006B601E;
+			remoteInfo = Delaunay;
 		};
 		D2C44ED31F0A3AD600C8F108 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -78,20 +99,13 @@
 			remoteGlobalIDString = D2CA805F1F0C36B00030826F;
 			remoteInfo = BezierPathSampleiOS;
 		};
-		D2CB3C5D1F12C3BC00330A21 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D2B7457E1F0E6C7900B08882 /* DelaunaySwift.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = C41B5BC01C3FF148006B601E;
-			remoteInfo = DelaunaySwift;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		D20A77F01F0E75B000F24E6F /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		D20A77F41F0E7EFE00F24E6F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D2A9913B1F4870A200851EE9 /* BezierPathDelaunay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BezierPathDelaunay.swift; sourceTree = "<group>"; };
-		D2B7457E1F0E6C7900B08882 /* DelaunaySwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DelaunaySwift.xcodeproj; path = DelaunaySwift/DelaunaySwift.xcodeproj; sourceTree = SOURCE_ROOT; };
+		D2B7457E1F0E6C7900B08882 /* Delaunay.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Delaunay.xcodeproj; path = Delaunay/Delaunay.xcodeproj; sourceTree = SOURCE_ROOT; };
 		D2C44EC01F0A3AD500C8F108 /* BezierPathSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BezierPathSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2C44EC31F0A3AD500C8F108 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2C44EC71F0A3AD500C8F108 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -118,7 +132,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2A991401F48B8DA00851EE9 /* DelaunaySwift.framework in Frameworks */,
+				D26347731FBD077D00226303 /* Delaunay.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,7 +147,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2CB3C611F12C3C500330A21 /* DelaunaySwift.framework in Frameworks */,
+				D26347761FBD079B00226303 /* Delaunay.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,15 +161,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D2B7457F1F0E6C7900B08882 /* Products */ = {
+		D26347551FBD074B00226303 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D2B745841F0E6C7900B08882 /* DelaunaySwift.framework */,
-				D2B745861F0E6C7900B08882 /* DelaunaySwift.xctest */,
-				D2A991311F4864B300851EE9 /* Triangulation.app */,
-				D2A991331F4864B300851EE9 /* DelaunaySwift.framework */,
+				D263475E1FBD074B00226303 /* Triangulation.app */,
+				D26347601FBD074B00226303 /* Delaunay.framework */,
+				D26347621FBD074B00226303 /* Delaunay.xctest */,
+				D26347641FBD074B00226303 /* TriangulationTest.app */,
+				D26347661FBD074B00226303 /* Delaunay.framework */,
+				D26347681FBD074B00226303 /* DelaunaySwiftTestsMac.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		D26347721FBD077D00226303 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		D2C44EB71F0A3AD500C8F108 = {
@@ -169,8 +192,9 @@
 				D2C44ED51F0A3AD600C8F108 /* BezierPathSampleTests */,
 				D2CA80611F0C36B00030826F /* BezierPathSampleiOS */,
 				D2CA80761F0C36B00030826F /* BezierPathSampleiOSTests */,
-				D2B7457E1F0E6C7900B08882 /* DelaunaySwift.xcodeproj */,
+				D2B7457E1F0E6C7900B08882 /* Delaunay.xcodeproj */,
 				D2C44EC11F0A3AD500C8F108 /* Products */,
+				D26347721FBD077D00226303 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -241,7 +265,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				D2A991351F4864B900851EE9 /* PBXTargetDependency */,
+				D263476B1FBD077600226303 /* PBXTargetDependency */,
 			);
 			name = BezierPathSample;
 			productName = BezierPathSample;
@@ -277,7 +301,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				D2CB3C5E1F12C3BC00330A21 /* PBXTargetDependency */,
+				D26347751FBD079700226303 /* PBXTargetDependency */,
 			);
 			name = BezierPathSampleiOS;
 			productName = BezierPathSampleiOS;
@@ -342,8 +366,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = D2B7457F1F0E6C7900B08882 /* Products */;
-					ProjectRef = D2B7457E1F0E6C7900B08882 /* DelaunaySwift.xcodeproj */;
+					ProductGroup = D26347551FBD074B00226303 /* Products */;
+					ProjectRef = D2B7457E1F0E6C7900B08882 /* Delaunay.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -357,32 +381,47 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		D2A991311F4864B300851EE9 /* Triangulation.app */ = {
+		D263475E1FBD074B00226303 /* Triangulation.app */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.application;
 			path = Triangulation.app;
-			remoteRef = D2A991301F4864B300851EE9 /* PBXContainerItemProxy */;
+			remoteRef = D263475D1FBD074B00226303 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		D2A991331F4864B300851EE9 /* DelaunaySwift.framework */ = {
+		D26347601FBD074B00226303 /* Delaunay.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
-			path = DelaunaySwift.framework;
-			remoteRef = D2A991321F4864B300851EE9 /* PBXContainerItemProxy */;
+			path = Delaunay.framework;
+			remoteRef = D263475F1FBD074B00226303 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		D2B745841F0E6C7900B08882 /* DelaunaySwift.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = DelaunaySwift.framework;
-			remoteRef = D2B745831F0E6C7900B08882 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		D2B745861F0E6C7900B08882 /* DelaunaySwift.xctest */ = {
+		D26347621FBD074B00226303 /* Delaunay.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			path = DelaunaySwift.xctest;
-			remoteRef = D2B745851F0E6C7900B08882 /* PBXContainerItemProxy */;
+			path = Delaunay.xctest;
+			remoteRef = D26347611FBD074B00226303 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D26347641FBD074B00226303 /* TriangulationTest.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = TriangulationTest.app;
+			remoteRef = D26347631FBD074B00226303 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D26347661FBD074B00226303 /* Delaunay.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Delaunay.framework;
+			remoteRef = D26347651FBD074B00226303 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D26347681FBD074B00226303 /* DelaunaySwiftTestsMac.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			name = DelaunaySwiftTestsMac.xctest;
+			path = DelaunayTestsMac.xctest;
+			remoteRef = D26347671FBD074B00226303 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -467,10 +506,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		D2A991351F4864B900851EE9 /* PBXTargetDependency */ = {
+		D263476B1FBD077600226303 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "DelaunaySwift (MacOS)";
-			targetProxy = D2A991341F4864B900851EE9 /* PBXContainerItemProxy */;
+			name = "Delaunay (macOS)";
+			targetProxy = D263476A1FBD077600226303 /* PBXContainerItemProxy */;
+		};
+		D26347751FBD079700226303 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Delaunay;
+			targetProxy = D26347741FBD079700226303 /* PBXContainerItemProxy */;
 		};
 		D2C44ED41F0A3AD600C8F108 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -481,11 +525,6 @@
 			isa = PBXTargetDependency;
 			target = D2CA805F1F0C36B00030826F /* BezierPathSampleiOS */;
 			targetProxy = D2CA80741F0C36B00030826F /* PBXContainerItemProxy */;
-		};
-		D2CB3C5E1F12C3BC00330A21 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = DelaunaySwift;
-			targetProxy = D2CB3C5D1F12C3BC00330A21 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
