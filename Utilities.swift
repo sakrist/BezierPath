@@ -10,10 +10,12 @@
     import UIKit
     public typealias OSColor = UIColor
     public typealias OSViewController = UIViewController
+    public typealias OSFont = UIFont
 #elseif os(OSX)
     import Cocoa
     public typealias OSColor = NSColor
     public typealias OSViewController = NSViewController
+    public typealias OSFont = NSFont
 #endif
 
 import Delaunay
@@ -34,12 +36,6 @@ extension Triangle {
         path.closeSubpath()
         
         return path
-    }
-}
-
-public extension Vertex {
-    public init(_ point:Point, _ i:Int) {
-        self.init(x:point.x, y:point.y, i:i)
     }
 }
 

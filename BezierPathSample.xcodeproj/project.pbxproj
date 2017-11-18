@@ -13,8 +13,8 @@
 		D20A77F61F0E7F1400F24E6F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20A77F41F0E7EFE00F24E6F /* ViewController.swift */; };
 		D26347731FBD077D00226303 /* Delaunay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D26347661FBD074B00226303 /* Delaunay.framework */; };
 		D26347761FBD079B00226303 /* Delaunay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D26347601FBD074B00226303 /* Delaunay.framework */; };
-		D2A9913C1F4870A200851EE9 /* BezierPathDelaunay.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A9913B1F4870A200851EE9 /* BezierPathDelaunay.swift */; };
-		D2A9913D1F4870A200851EE9 /* BezierPathDelaunay.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A9913B1F4870A200851EE9 /* BezierPathDelaunay.swift */; };
+		D26347791FBD111A00226303 /* String+BezierPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26347781FBD111A00226303 /* String+BezierPath.swift */; };
+		D263477A1FBD111A00226303 /* String+BezierPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26347781FBD111A00226303 /* String+BezierPath.swift */; };
 		D2C44EC41F0A3AD500C8F108 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C44EC31F0A3AD500C8F108 /* AppDelegate.swift */; };
 		D2C44EC81F0A3AD500C8F108 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2C44EC71F0A3AD500C8F108 /* Assets.xcassets */; };
 		D2C44ECB1F0A3AD500C8F108 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2C44EC91F0A3AD500C8F108 /* Main.storyboard */; };
@@ -104,7 +104,7 @@
 /* Begin PBXFileReference section */
 		D20A77F01F0E75B000F24E6F /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		D20A77F41F0E7EFE00F24E6F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		D2A9913B1F4870A200851EE9 /* BezierPathDelaunay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BezierPathDelaunay.swift; sourceTree = "<group>"; };
+		D26347781FBD111A00226303 /* String+BezierPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+BezierPath.swift"; sourceTree = "<group>"; };
 		D2B7457E1F0E6C7900B08882 /* Delaunay.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Delaunay.xcodeproj; path = Delaunay/Delaunay.xcodeproj; sourceTree = SOURCE_ROOT; };
 		D2C44EC01F0A3AD500C8F108 /* BezierPathSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BezierPathSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2C44EC31F0A3AD500C8F108 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -185,7 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				D2C44EE11F0A3B0A00C8F108 /* BezierPath.swift */,
-				D2A9913B1F4870A200851EE9 /* BezierPathDelaunay.swift */,
+				D26347781FBD111A00226303 /* String+BezierPath.swift */,
 				D20A77F01F0E75B000F24E6F /* Utilities.swift */,
 				D20A77F41F0E7EFE00F24E6F /* ViewController.swift */,
 				D2C44EC21F0A3AD500C8F108 /* BezierPathSample */,
@@ -468,7 +468,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2C44EE21F0A3B0A00C8F108 /* BezierPath.swift in Sources */,
-				D2A9913C1F4870A200851EE9 /* BezierPathDelaunay.swift in Sources */,
+				D26347791FBD111A00226303 /* String+BezierPath.swift in Sources */,
 				D20A77F11F0E763500F24E6F /* Utilities.swift in Sources */,
 				D20A77F61F0E7F1400F24E6F /* ViewController.swift in Sources */,
 				D2C44EC41F0A3AD500C8F108 /* AppDelegate.swift in Sources */,
@@ -488,7 +488,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2CA80801F0C3A2B0030826F /* BezierPath.swift in Sources */,
-				D2A9913D1F4870A200851EE9 /* BezierPathDelaunay.swift in Sources */,
+				D263477A1FBD111A00226303 /* String+BezierPath.swift in Sources */,
 				D20A77F21F0E763600F24E6F /* Utilities.swift in Sources */,
 				D20A77F51F0E7F1300F24E6F /* ViewController.swift in Sources */,
 				D2CA80631F0C36B00030826F /* AppDelegate.swift in Sources */,
@@ -669,7 +669,7 @@
 				DEVELOPMENT_TEAM = DHKZ7WR43P;
 				INFOPLIST_FILE = BezierPathSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sakrist.BezierPathSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
@@ -685,7 +685,7 @@
 				DEVELOPMENT_TEAM = DHKZ7WR43P;
 				INFOPLIST_FILE = BezierPathSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sakrist.BezierPathSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
