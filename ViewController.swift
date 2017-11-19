@@ -21,10 +21,9 @@ class ViewController: OSViewController {
 
         // Do any additional setup after loading the view.
 
+        let test = "S U P E R"
         
-        let test = "P"
-        
-        let path = test.bezierPath(font: OSFont.init(name: "Helvetica", size: 300)!)
+        let path = test.bezierPath(font: OSFont.init(name: "Helvetica", size: 200)!)
         path.transform(using: AffineTransform.init(scaleByX: 1, byY: -1))
         path.transform(using: AffineTransform.init(translationByX: 0, byY: path.bounds.height + 100))
         
@@ -51,8 +50,12 @@ class ViewController: OSViewController {
         
         let layer:CALayer? = self.view.layer
         if let baseLayer = layer {
-            baseLayer.backgroundColor = OSColor.white.cgColor
-        
+            let lgr = CAGradientLayer.init()
+            lgr.frame = CGRect.init(origin: CGPoint.zero, size: baseLayer.frame.size)
+//            lgr.colors = [OSColor().randomColor().cgColor, OSColor().randomColor().cgColor, OSColor().randomColor().cgColor]
+            baseLayer.addSublayer(lgr)
+            lgr.autoresizingMask = [.layerWidthSizable, .layerHeightSizable]
+            
             for triangle in triangles {
                 let triangleLayer = CAShapeLayer()
                 triangleLayer.frame = baseLayer.frame
@@ -63,24 +66,39 @@ class ViewController: OSViewController {
             }
             
             
-            let path2:CGMutablePath = CGMutablePath.init()
-            
-            for segment in path.segments() {
-                for point in segment.points {
-                    path2.addRect(CGRect.init(x: point.x, y: point.y, width: 0.5, height: 0.5))
-                }
-            }
             // Style Square
             let a = CAShapeLayer()
-            a.path = path2
-            a.strokeColor = OSColor.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0).cgColor
+            a.path = path.cgPath
+            a.strokeColor = OSColor().randomColor().cgColor
             a.fillColor = nil
             a.opacity = 1.0
             a.lineWidth = 1
             baseLayer.addSublayer(a)
+            
+            
+//            for segment in path.polygons() {
+//                let path2:CGMutablePath = CGMutablePath.init()
+//                for point in segment.points {
+//                    path2.addRect(CGRect.init(x: point.x, y: point.y, width: 0.5, height: 0.5))
+//                }
+//                // Style Square
+//                let a = CAShapeLayer()
+//                a.path = path2
+//                a.strokeColor = OSColor().randomColor().cgColor
+//                a.fillColor = nil
+//                a.opacity = 1.0
+//                a.lineWidth = 1
+//                baseLayer.addSublayer(a)
+//            }
+            
         }
     }
+    
+    override func viewDidLayout() {
+        self.view.layer?.frame = self.view.bounds 
+    }
 
+    
 #if os(OSX)
     override var representedObject: Any? {
         didSet {

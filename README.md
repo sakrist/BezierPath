@@ -13,7 +13,8 @@ Sample work on both iOS and MacOS.
 
 Screenshot of example:
 
- <img src="https://raw.githubusercontent.com/sakrist/BezierPathSwift/master/Screenshot.png" width="50%">
+![BezierPath Example](Screenshot.png)
+
 
 
 

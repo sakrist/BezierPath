@@ -9,41 +9,31 @@
 import Foundation
 import Delaunay
 
-public struct Point {
-    public var x:Double
-    public var y:Double
-    
-    public init(x: Double, y: Double) {
-        self.x = x;
-        self.y = y;
-    }
+extension Point {
     
     public init(x: CGFloat, y: CGFloat) {
         self.x = Double(x);
         self.y = Double(y);
+        self.index = -1
     }
     
     public init(x: Int, y: Int) {
         self.x = Double(x);
         self.y = Double(y);
+        self.index = -1
     }
     
     public init(_ point: CGPoint) {
         self.x = Double(point.x);
         self.y = Double(point.y);
+        self.index = -1
     }
 }
 
-@objc open class Segment: NSObject {
-    open var points:[Point] = []
+open class PointsSet {
+    open let points:[Point]
     init(_ points:[Point]) {
-        self.points.append(contentsOf: points) 
-    }
-}
-
-public extension Vertex {
-    public init(_ point:Point, _ i:Int) {
-        self.init(x:point.x, y:point.y, i:i)
+        self.points = points 
     }
 }
 
@@ -151,30 +141,27 @@ extension PathElement {
             }
         }
         
+        //
+        // https://gist.github.com/jorgenisaksson/76a8dae54fd3dc4e31c2
+        //
+        public var cgPath: CGPath {
+            let path = CGMutablePath()
+            var points = [CGPoint](repeating: .zero, count: 3)
+            for i in 0 ..< self.elementCount {
+                let type = self.element(at: i, associatedPoints: &points)
+                switch type {
+                case .moveToBezierPathElement: path.move(to: CGPoint(x: points[0].x, y: points[0].y) )
+                case .lineToBezierPathElement: path.addLine(to: CGPoint(x: points[0].x, y: points[0].y) )
+                case .curveToBezierPathElement: path.addCurve(      to: CGPoint(x: points[2].x, y: points[2].y),
+                                                                    control1: CGPoint(x: points[0].x, y: points[0].y),
+                                                                    control2: CGPoint(x: points[1].x, y: points[1].y) )
+                case .closePathBezierPathElement: path.closeSubpath()
+                }
+            }
+            return path
+        }
+        
         public convenience init(roundedRect:CGRect, cornerRadius: CGFloat) {
-            
-//            self.init()
-//            if !roundedRect.isEmpty {
-//                if cornerRadius > 0.0 {
-//                    let clampedRadius = min(cornerRadius, 0.5 * min(roundedRect.size.width, roundedRect.size.height))
-//                    
-//                    let topLeft = CGPoint.init(x:roundedRect.minX, y:roundedRect.minY)
-//                    let topRight = CGPoint.init(x:roundedRect.maxX, y:roundedRect.maxY)
-//                    let bottomRight = CGPoint.init(x:roundedRect.maxX, y:roundedRect.minY)
-//
-//                    self.move(to: CGPoint.init(x:roundedRect.midX, y:roundedRect.maxY))
-//                    self.appendArc(from: topLeft, to: roundedRect.origin, radius: clampedRadius)
-//                    self.appendArc(from: roundedRect.origin, to: bottomRight, radius: clampedRadius)
-//                    self.appendArc(from: bottomRight, to: topRight, radius: clampedRadius)
-//                    self.appendArc(from: topRight, to: topLeft, radius: clampedRadius)
-//                    self.close()
-//                    
-//                } else {
-//                    self.appendRect(roundedRect);
-//                }
-//            }
-            
-            
             self.init(roundedRect:roundedRect, xRadius: cornerRadius, yRadius: cornerRadius)
         }
     }
@@ -224,31 +211,27 @@ func bezierQuadraticPointAt(_ points: [Point], t:Double ) -> Point {
 
 
 extension OSBezierPath {
-
-   open func segments() -> [Segment] { 
-        var segments = [Segment]()
-        
-        segments.removeAll()
+    
+    open func polygons() -> [PointsSet] { 
+        var polygons = [PointsSet]()
         var lastPoint:Point = Point(x:0, y:0)
+        var segmentPoints:[Point] = []
         
         for element in self.elements {
             
-            var segmentPoints:[Point] = []
-            
             switch element {
             case let .moveToPoint(point):
-                
+                segmentPoints.append(point)
                 lastPoint = point
                 break
             case let .addLineToPoint(point):
-                segmentPoints.append(lastPoint)
                 segmentPoints.append(point)
                 lastPoint = point
                 break
             case let .addQuadCurveToPoint(point1, point2):
                 var t:Double = 0.0
+                let points:[Point] = [lastPoint, point1, point2]
                 while t < 1.0 {
-                    let points:[Point] = [lastPoint, point1, point2]
                     let point:Point = bezierQuadraticPointAt(points, t: t)
                     segmentPoints.append(point)
                     t += 0.1
@@ -257,8 +240,8 @@ extension OSBezierPath {
                 break
             case let .addCurveToPoint(point1, point2, point3):
                 var t:Double = 0.0
+                let points:[Point] = [lastPoint, point1, point2, point3]
                 while t < 1.0 {
-                    let points:[Point] = [lastPoint, point1, point2, point3]
                     let point:Point = bezierQubicPointAt(points, t: t)
                     segmentPoints.append(point)
                     t += 0.1
@@ -267,31 +250,82 @@ extension OSBezierPath {
                 lastPoint = point3
                 break
             case .closeSubpath:
+                let polygon = PointsSet.init(segmentPoints);
+                polygons.append(polygon)
+                segmentPoints.removeAll()
                 break
-            }
-            
-            if segmentPoints.count > 0 {
-                let segment:Segment = Segment.init(segmentPoints);
-                segments.append(segment)
             }
         }
         // finish
-        return segments
+        return polygons
     }
     
     open func triangles() -> [Triangle] { 
         
-        var vertices = [Vertex]()
-        var index:Int = 0
-        for segment in self.segments() {
-            for point in segment.points {
-                vertices.append(Vertex(point, index))
+        var triangles = [Triangle]() 
+        var polygons = self.polygons()
+
+        while polygons.count > 0 {
+
+            // Take firs polygon
+            let pointsSet = polygons.first!
+            let points_ = pointsSet.points.removeDuplicates()
+            var vertices = [Point]()
+            var index:Int = 0
+            // set indices to points
+            for var point in points_ {
+                point.index = index
+                vertices.append(point)
                 index += 1
             }
-        }
+            
+            // create polygon for future test on holes
+            let polygon = Polygon.init(points_)
+            
+            // remove first record from polygons
+            polygons.remove(at: 0)
+            let polygonsCopy = polygons
+            
+            var holes = [[Point]]()
+            
+            // iterate polygons
+            for i in 0..<polygonsCopy.count {
+                let pointsSet2 = polygonsCopy[i]
+                let points_2 = pointsSet2.points.removeDuplicates()
+                
+                // test if point is inside of first polygon
+                if let point = points_2.first {
+                    if polygon.contain(point) {
+                        polygons.remove(at: i)
+                        var hole = [Point]()
+                        for var point in points_2 {
+                            point.index = index
+                            hole.append(point)
+                            index += 1
+                        }
+                        holes.append(hole)
+                    } else {
+                        let polygon2 = Polygon.init(points_2)
+                        if polygon2.contain(polygon.vertices[0]) {
+                            
+                            polygons.remove(at: i)
+                            let hole = vertices
+                            holes.append(hole)
+                            vertices.removeAll()
+                            for var point in points_2 {
+                                point.index = index
+                                vertices.append(point)
+                                index += 1
+                            }
+                        }
+                    }
+                }
+            }
+            triangles += CDT().triangulate(vertices, holes)
+        } 
         
 //        return CDT().triangulate(vertices)
-        return Delaunay().triangulate(vertices)
+        return triangles
     } 
 }
 
