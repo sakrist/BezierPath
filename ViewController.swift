@@ -14,16 +14,48 @@ import UIKit
 
 import Delaunay
 
+func delayWithSeconds(_ seconds: Double, completion: @escaping () -> ()) {
+    DispatchQueue.main.asyncAfter(deadline: .now() + seconds) { 
+        completion()
+    }
+}
+
 class ViewController: OSViewController {
 
+    var flattness = 0.7
+    var baseLayer:CAGradientLayer = CAGradientLayer.init()
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let layer:CALayer? = self.view.layer
+        
+        baseLayer.frame = CGRect.init(origin: CGPoint.zero, size: baseLayer.frame.size)
+//        baseLayer.colors = [OSColor().randomColor().cgColor, OSColor().randomColor().cgColor, OSColor().randomColor().cgColor]
+        layer?.addSublayer(baseLayer)
+        baseLayer.borderWidth = 0
+        baseLayer.autoresizingMask = [.layerWidthSizable, .layerHeightSizable]
+        
+        testTextTriangle()
+        
+    }
+    
+    @IBAction func flatness(_ sender: NSSlider) {
+        flattness = sender.doubleValue
+        testTextTriangle()
+    }
+    
+    func testTextTriangle() {
+        
+        if let subs = baseLayer.sublayers {
+            for s in subs {
+                s.removeFromSuperlayer()
+            }
+        }
+        
         // Do any additional setup after loading the view.
 
-        let test = "S U P E R"
+        let test = "Super"
         
-        let path = test.bezierPath(font: OSFont.init(name: "Helvetica", size: 200)!)
+        let path = test.bezierPath(font: OSFont.init(name: "Helvetica", size: 300)!)
         path.transform(using: AffineTransform.init(scaleByX: 1, byY: -1))
         path.transform(using: AffineTransform.init(translationByX: 0, byY: path.bounds.height + 100))
         
@@ -41,39 +73,36 @@ class ViewController: OSViewController {
         
         let start = Date().timeIntervalSince1970
         
-        let triangles = path.triangles()
+        let triangles = path.triangles(flatness: flattness)
         
         let end = Date().timeIntervalSince1970
         print("time: \(end - start)")
         
         print("triangles \(triangles.count) ")
         
-        let layer:CALayer? = self.view.layer
-        if let baseLayer = layer {
-            let lgr = CAGradientLayer.init()
-            lgr.frame = CGRect.init(origin: CGPoint.zero, size: baseLayer.frame.size)
-//            lgr.colors = [OSColor().randomColor().cgColor, OSColor().randomColor().cgColor, OSColor().randomColor().cgColor]
-            baseLayer.addSublayer(lgr)
-            lgr.autoresizingMask = [.layerWidthSizable, .layerHeightSizable]
+           
             
             for triangle in triangles {
                 let triangleLayer = CAShapeLayer()
                 triangleLayer.frame = baseLayer.frame
                 triangleLayer.path = triangle.toPath()
-                triangleLayer.fillColor = OSColor().randomColor().cgColor
+                triangleLayer.borderWidth = 0.5
+                triangleLayer.strokeColor = OSColor.black.cgColor
+                triangleLayer.fillColor = OSColor.gray.cgColor
+//                triangleLayer.fillColor = OSColor().randomColor().cgColor
                 triangleLayer.backgroundColor = OSColor.clear.cgColor
                 baseLayer.addSublayer(triangleLayer)
             }
             
             
             // Style Square
-            let a = CAShapeLayer()
-            a.path = path.cgPath
-            a.strokeColor = OSColor().randomColor().cgColor
-            a.fillColor = nil
-            a.opacity = 1.0
-            a.lineWidth = 1
-            baseLayer.addSublayer(a)
+//            let a = CAShapeLayer()
+//            a.path = path.cgPath
+//            a.strokeColor = OSColor().randomColor().cgColor
+//            a.fillColor = nil
+//            a.opacity = 1.0
+//            a.lineWidth = 1
+//            baseLayer.addSublayer(a)
             
             
 //            for segment in path.polygons() {
@@ -90,8 +119,7 @@ class ViewController: OSViewController {
 //                a.lineWidth = 1
 //                baseLayer.addSublayer(a)
 //            }
-            
-        }
+
     }
     
     override func viewDidLayout() {

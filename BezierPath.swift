@@ -30,8 +30,8 @@ extension Point {
     }
 }
 
-open class PointsSet {
-    open let points:[Point]
+public struct PointsSet {
+    public let points:[Point]
     init(_ points:[Point]) {
         self.points = points 
     }
@@ -195,6 +195,31 @@ extension PathElement {
     
 #endif
 
+func bezierQubicLength(_ points: [Point]) ->Double {
+    var length = 0.0
+    var t = 0.1
+    var last = points.first!
+    while t < 1.01 {
+        let point = bezierQubicPointAt(points, t: t)
+        length += last.distance(point)
+        last = point
+        t += 0.1
+    }
+    return length
+}
+
+func bezierQuadraticLength(_ points: [Point]) ->Double {
+    var length = 0.0
+    var t = 0.1
+    var last = points.first!
+    while t < 1.01 {
+        let point = bezierQuadraticPointAt(points, t: t)
+        length += last.distance(point)
+        last = point
+        t += 0.1
+    }
+    return length
+}
 
 func bezierQubicPointAt(_ points: [Point], t:Double ) -> Point {
     let x:Double = pow((1.0-t), 3) * points[0].x + 3.0 * pow((1.0-t), 2) * t * points[1].x + 3.0 * (1.0-t) * pow(t, 2) * points[2].x + pow(t, 3) * points[3].x
@@ -210,9 +235,10 @@ func bezierQuadraticPointAt(_ points: [Point], t:Double ) -> Point {
 
 
 
+
 extension OSBezierPath {
     
-    open func polygons() -> [PointsSet] { 
+    open func polygons(flatness:Double) -> [PointsSet] { 
         var polygons = [PointsSet]()
         var lastPoint:Point = Point(x:0, y:0)
         var segmentPoints:[Point] = []
@@ -229,24 +255,27 @@ extension OSBezierPath {
                 lastPoint = point
                 break
             case let .addQuadCurveToPoint(point1, point2):
-                var t:Double = 0.0
+                var t = 0.001
                 let points:[Point] = [lastPoint, point1, point2]
+                let step = 10.0 * flatness / bezierQuadraticLength(points) 
                 while t < 1.0 {
                     let point:Point = bezierQuadraticPointAt(points, t: t)
                     segmentPoints.append(point)
-                    t += 0.1
+                    t += step
                 }
+                segmentPoints.append(point2)
                 lastPoint = point2
                 break
             case let .addCurveToPoint(point1, point2, point3):
-                var t:Double = 0.0
+                var t:Double = 0.001
                 let points:[Point] = [lastPoint, point1, point2, point3]
+                let step = 10.0 * flatness / bezierQubicLength(points)
                 while t < 1.0 {
                     let point:Point = bezierQubicPointAt(points, t: t)
                     segmentPoints.append(point)
-                    t += 0.1
+                    t += step
                 }
-                
+                segmentPoints.append(point3)
                 lastPoint = point3
                 break
             case .closeSubpath:
@@ -260,10 +289,10 @@ extension OSBezierPath {
         return polygons
     }
     
-    open func triangles() -> [Triangle] { 
+    open func triangles(flatness:Double = 0.6) -> [Triangle] { 
         
         var triangles = [Triangle]() 
-        var polygons = self.polygons()
+        var polygons = self.polygons(flatness:flatness)
 
         while polygons.count > 0 {
 
@@ -273,10 +302,8 @@ extension OSBezierPath {
             var vertices = [Point]()
             var index:Int = 0
             // set indices to points
-            for var point in points_ {
-                point.index = index
+            for point in points_ {
                 vertices.append(point)
-                index += 1
             }
             
             // create polygon for future test on holes
@@ -298,10 +325,8 @@ extension OSBezierPath {
                     if polygon.contain(point) {
                         polygons.remove(at: i)
                         var hole = [Point]()
-                        for var point in points_2 {
-                            point.index = index
+                        for point in points_2 {
                             hole.append(point)
-                            index += 1
                         }
                         holes.append(hole)
                     } else {
@@ -312,16 +337,25 @@ extension OSBezierPath {
                             let hole = vertices
                             holes.append(hole)
                             vertices.removeAll()
-                            for var point in points_2 {
-                                point.index = index
+                            for point in points_2 {
                                 vertices.append(point)
-                                index += 1
                             }
                         }
                     }
                 }
             }
-            triangles += CDT().triangulate(vertices, holes)
+            for i in 0..<vertices.count {
+                vertices[i].index = index
+                index += 1
+            }
+            for j in 0..<holes.count {
+                for i in 0..<holes[j].count {
+                    holes[j][i].index = index
+                    index += 1
+                }
+            }
+            
+            triangles += ConformingDelaunay().triangulate(vertices, holes)
         } 
         
 //        return CDT().triangulate(vertices)
