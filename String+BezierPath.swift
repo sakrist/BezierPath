@@ -7,6 +7,9 @@
 //
 
 import Foundation
+import CoreText
+
+
 
 func bridge<T : AnyObject>(obj : T) -> UnsafeRawPointer {
     return UnsafeRawPointer(Unmanaged.passUnretained(obj).toOpaque())
@@ -63,11 +66,12 @@ extension String {
         let path = OSBezierPath.init(cgPath:letters)
 
         let boundingBox = letters.boundingBox;
-        
+
+#if os(macOS)
         // The path is upside down (CG coordinate system)
-        path.transform(using: AffineTransform.init(scaleByX: 1.0, byY: -1.0))
-        path.transform(using: AffineTransform.init(translationByX: 0.0, byY: boundingBox.size.height))
-        
+        path.transform(using: OSAffineTransform.init(scaleByX: 1.0, byY: -1.0))
+        path.transform(using: OSAffineTransform.init(translationByX: 0.0, byY: boundingBox.size.height))
+#endif        
         return path
         
 //        return OSBezierPath.init()

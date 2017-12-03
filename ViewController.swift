@@ -32,16 +32,21 @@ class ViewController: OSViewController {
 //        baseLayer.colors = [OSColor().randomColor().cgColor, OSColor().randomColor().cgColor, OSColor().randomColor().cgColor]
         layer?.addSublayer(baseLayer)
         baseLayer.borderWidth = 0
+
+#if os(OSX)
         baseLayer.autoresizingMask = [.layerWidthSizable, .layerHeightSizable]
+#endif
         
         testTextTriangle()
         
     }
     
+#if os(OSX)
     @IBAction func flatness(_ sender: NSSlider) {
         flattness = sender.doubleValue
         testTextTriangle()
     }
+#endif
     
     func testTextTriangle() {
         
@@ -55,9 +60,9 @@ class ViewController: OSViewController {
 
         let test = "Super"
         
-        let path = test.bezierPath(font: OSFont.init(name: "Helvetica", size: 300)!)
-        path.transform(using: AffineTransform.init(scaleByX: 1, byY: -1))
-        path.transform(using: AffineTransform.init(translationByX: 0, byY: path.bounds.height + 100))
+        let path = test.bezierPath(font: OSFont.init(name: "Helvetica", size: 200)!)
+        path.transform(using: OSAffineTransform.init(scaleByX: 1, byY: -1))
+        path.transform(using: OSAffineTransform.init(translationByX: 0, byY: path.bounds.height + 100))
         
 //        let path:OSBezierPath = OSBezierPath.init(roundedRect: CGRect.init(x: 10, y: 10, width: 150, height: 130), cornerRadius: 50)
 //        
@@ -74,7 +79,7 @@ class ViewController: OSViewController {
         let start = Date().timeIntervalSince1970
         
         let triangles = path.triangles(flatness: flattness)
-        
+//        let triangles = [Triangle]()
         let end = Date().timeIntervalSince1970
         print("time: \(end - start)")
         
@@ -96,13 +101,13 @@ class ViewController: OSViewController {
             
             
             // Style Square
-//            let a = CAShapeLayer()
-//            a.path = path.cgPath
-//            a.strokeColor = OSColor().randomColor().cgColor
-//            a.fillColor = nil
-//            a.opacity = 1.0
-//            a.lineWidth = 1
-//            baseLayer.addSublayer(a)
+            let a = CAShapeLayer()
+            a.path = path.cgPath
+            a.strokeColor = OSColor().randomColor().cgColor
+            a.fillColor = nil
+            a.opacity = 1.0
+            a.lineWidth = 1
+            baseLayer.addSublayer(a)
             
             
 //            for segment in path.polygons() {
@@ -122,12 +127,12 @@ class ViewController: OSViewController {
 
     }
     
+#if os(OSX)
+    
     override func viewDidLayout() {
         self.view.layer?.frame = self.view.bounds 
     }
-
     
-#if os(OSX)
     override var representedObject: Any? {
         didSet {
         // Update the view, if already loaded.

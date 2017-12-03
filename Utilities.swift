@@ -11,11 +11,24 @@
     public typealias OSColor = UIColor
     public typealias OSViewController = UIViewController
     public typealias OSFont = UIFont
+    public typealias OSAffineTransform = CGAffineTransform 
+    
+    extension CGAffineTransform {
+        
+        public init(translationByX x: CGFloat, byY y: CGFloat) {
+            self.init(translationX: x, y: y)
+        }
+        
+        public init(scaleByX x: CGFloat, byY y: CGFloat) {
+            self.init(scaleX: x, y: y)
+        }
+    }
 #elseif os(OSX)
     import Cocoa
     public typealias OSColor = NSColor
     public typealias OSViewController = NSViewController
     public typealias OSFont = NSFont
+    public typealias OSAffineTransform = AffineTransform
 #endif
 
 import Delaunay

@@ -191,6 +191,10 @@ extension PathElement {
         public var elementCount:Int {
             return self.elements.count
         }
+        
+        public func transform(using transform:OSAffineTransform) {
+            self.apply(transform)
+        }
     }
     
 #endif
@@ -305,6 +309,9 @@ extension OSBezierPath {
             for point in points_ {
                 vertices.append(point)
             }
+#if os(iOS)
+            vertices.reverse()
+#endif
             
             // create polygon for future test on holes
             let polygon = Polygon.init(points_)
@@ -328,18 +335,26 @@ extension OSBezierPath {
                         for point in points_2 {
                             hole.append(point)
                         }
+#if os(iOS)
+                        hole.reverse()
+#endif
                         holes.append(hole)
                     } else {
-                        let polygon2 = Polygon.init(points_2)
+                        let polygon2 = Polygon(points_2)
                         if polygon2.contain(polygon.vertices[0]) {
                             
-                            polygons.remove(at: i)
-                            let hole = vertices
+                            if polygons.count > i {
+                                polygons.remove(at: i)
+                            }
+                            let hole = polygon.vertices
                             holes.append(hole)
                             vertices.removeAll()
                             for point in points_2 {
                                 vertices.append(point)
                             }
+#if os(iOS)
+                            vertices.reverse()
+#endif
                         }
                     }
                 }
