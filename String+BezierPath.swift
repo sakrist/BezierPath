@@ -30,8 +30,8 @@ func bridgeTransfer<T : AnyObject>(ptr : UnsafeRawPointer) -> T {
 extension String {
     
     func bezierPath(font:OSFont) -> OSBezierPath {
-        let ctFont = CTFontCreateWithName(font.familyName as CFString?, font.pointSize, nil)
-        let attributed = NSAttributedString.init(string: self, attributes: [kCTFontAttributeName as String: ctFont])        
+        let ctFont = CTFontCreateWithName((font.familyName as CFString?)!, font.pointSize, nil)
+        let attributed = NSAttributedString.init(string: self, attributes: [NSAttributedStringKey(rawValue: kCTFontAttributeName as String as String): ctFont])        
         let letters = CGMutablePath()
         let line = CTLineCreateWithAttributedString(attributed)
         let runArray = CTLineGetGlyphRuns(line)

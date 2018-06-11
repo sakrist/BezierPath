@@ -12,21 +12,15 @@ import Delaunay
 extension Point {
     
     public init(x: CGFloat, y: CGFloat) {
-        self.x = Double(x);
-        self.y = Double(y);
-        self.index = -1
+        self.init(x: Double(x), y: Double(y), i: -1)        
     }
     
     public init(x: Int, y: Int) {
-        self.x = Double(x);
-        self.y = Double(y);
-        self.index = -1
+        self.init(x: Double(x), y: Double(y), i: -1)
     }
     
     public init(_ point: CGPoint) {
-        self.x = Double(point.x);
-        self.y = Double(point.y);
-        self.index = -1
+        self.init(x: Double(point.x), y: Double(point.y), i: -1)
     }
 }
 
@@ -71,7 +65,7 @@ extension PathElement {
     public typealias OSBezierPath = NSBezierPath 
     
     extension PathElement {
-        init(type: NSBezierPathElement, points: NSPointArray) {
+        init(type: NSBezierPath.ElementType, points: NSPointArray) {
             switch type {
             case .moveToBezierPathElement:
                 self = .moveToPoint(Point(points[0]))
@@ -105,7 +99,7 @@ extension PathElement {
                 let elementType = self.element(at: i, associatedPoints: points)
                 let nextElement = PathElement(type:elementType, points:points)
                 pathElements.append(nextElement)
-                points.deallocate(capacity: 3)
+                points.deallocate()
             }
             
             return pathElements
