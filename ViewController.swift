@@ -94,7 +94,7 @@ class ViewController: OSViewController {
                 triangleLayer.borderWidth = 0.5
                 triangleLayer.strokeColor = OSColor.black.cgColor
                 triangleLayer.fillColor = OSColor.gray.cgColor
-//                triangleLayer.fillColor = OSColor().randomColor().cgColor
+                triangleLayer.fillColor = OSColor().randomColor().cgColor
                 triangleLayer.backgroundColor = OSColor.clear.cgColor
                 baseLayer.addSublayer(triangleLayer)
             }
