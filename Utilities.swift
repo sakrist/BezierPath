@@ -69,7 +69,7 @@ extension CGFloat {
 }
 
 extension OSColor {
-    func randomColor() -> OSColor {
+    static func randomColor() -> OSColor {
         let hue = CGFloat( Double.random() )  // 0.0 to 1.0
         let saturation: CGFloat = 0.5  // 0.5 to 1.0, away from white
         let brightness: CGFloat = 1.0  // 0.5 to 1.0, away from black

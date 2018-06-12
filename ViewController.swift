@@ -29,7 +29,7 @@ class ViewController: OSViewController {
         let layer:CALayer? = self.view.layer
         
         baseLayer.frame = CGRect.init(origin: CGPoint.zero, size: baseLayer.frame.size)
-//        baseLayer.colors = [OSColor().randomColor().cgColor, OSColor().randomColor().cgColor, OSColor().randomColor().cgColor]
+//        baseLayer.colors = [OSColor.randomColor().cgColor, OSColor.randomColor().cgColor, OSColor.randomColor().cgColor]
         layer?.addSublayer(baseLayer)
         baseLayer.borderWidth = 0
 
@@ -91,10 +91,10 @@ class ViewController: OSViewController {
                 let triangleLayer = CAShapeLayer()
                 triangleLayer.frame = baseLayer.frame
                 triangleLayer.path = triangle.toPath()
-                triangleLayer.borderWidth = 0.5
-                triangleLayer.strokeColor = OSColor.black.cgColor
+//                triangleLayer.borderWidth = 0.5
+//                triangleLayer.strokeColor = OSColor.black.cgColor
                 triangleLayer.fillColor = OSColor.gray.cgColor
-                triangleLayer.fillColor = OSColor().randomColor().cgColor
+                triangleLayer.fillColor = OSColor.randomColor().cgColor
                 triangleLayer.backgroundColor = OSColor.clear.cgColor
                 baseLayer.addSublayer(triangleLayer)
             }
@@ -103,7 +103,7 @@ class ViewController: OSViewController {
             // Style Square
             let a = CAShapeLayer()
             a.path = path.cgPath
-            a.strokeColor = OSColor().randomColor().cgColor
+            a.strokeColor = OSColor.black.cgColor
             a.fillColor = nil
             a.opacity = 1.0
             a.lineWidth = 1
@@ -118,7 +118,7 @@ class ViewController: OSViewController {
 //                // Style Square
 //                let a = CAShapeLayer()
 //                a.path = path2
-//                a.strokeColor = OSColor().randomColor().cgColor
+//                a.strokeColor = OSColor.randomColor().cgColor
 //                a.fillColor = nil
 //                a.opacity = 1.0
 //                a.lineWidth = 1
