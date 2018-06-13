@@ -10,7 +10,7 @@ Sample work on both iOS and MacOS.
 
 Screenshot of example:
 
-![BezierPath Example](Screenshot.png)
+![BezierPath Example](Screenshot.jpeg)
 
 
 
