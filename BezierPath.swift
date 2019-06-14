@@ -56,6 +56,8 @@ extension PathElement {
             self = .addCurveToPoint(Point(element.points[0]), Point(element.points[1]), Point(element.points[2]))
         case .closeSubpath:
             self = .closeSubpath
+        @unknown default:
+            fatalError()
         }
     }
 }
@@ -67,14 +69,16 @@ extension PathElement {
     extension PathElement {
         init(type: NSBezierPath.ElementType, points: NSPointArray) {
             switch type {
-            case .moveToBezierPathElement:
+            case .moveTo:
                 self = .moveToPoint(Point(points[0]))
-            case .lineToBezierPathElement:
+            case .lineTo:
                 self = .addLineToPoint(Point(points[0]))
-            case .curveToBezierPathElement:
+            case .curveTo:
                 self = .addCurveToPoint(Point(points[0]), Point(points[1]), Point(points[2]))
-            case .closePathBezierPathElement:
+            case .closePath:
                 self = .closeSubpath
+            @unknown default:
+                fatalError()
             }
         }
     }
@@ -144,12 +148,14 @@ extension PathElement {
             for i in 0 ..< self.elementCount {
                 let type = self.element(at: i, associatedPoints: &points)
                 switch type {
-                case .moveToBezierPathElement: path.move(to: CGPoint(x: points[0].x, y: points[0].y) )
-                case .lineToBezierPathElement: path.addLine(to: CGPoint(x: points[0].x, y: points[0].y) )
-                case .curveToBezierPathElement: path.addCurve(      to: CGPoint(x: points[2].x, y: points[2].y),
+                case .moveTo: path.move(to: CGPoint(x: points[0].x, y: points[0].y) )
+                case .lineTo: path.addLine(to: CGPoint(x: points[0].x, y: points[0].y) )
+                case .curveTo: path.addCurve(      to: CGPoint(x: points[2].x, y: points[2].y),
                                                                     control1: CGPoint(x: points[0].x, y: points[0].y),
                                                                     control2: CGPoint(x: points[1].x, y: points[1].y) )
-                case .closePathBezierPathElement: path.closeSubpath()
+                case .closePath: path.closeSubpath()
+                @unknown default:
+                    fatalError()
                 }
             }
             return path

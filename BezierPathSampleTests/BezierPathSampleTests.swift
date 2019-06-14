@@ -8,7 +8,7 @@
 
 import XCTest
 @testable import BezierPathSample
-import DelaunaySwift
+import Delaunay
 
 class BezierPathSampleTests: XCTestCase {
     
@@ -35,24 +35,20 @@ class BezierPathSampleTests: XCTestCase {
         path.appendOval(in: CGRect.init(x: 150, y: 50, width: 150, height: 130))
         path.appendOval(in: CGRect.init(x: 200, y: 50, width: 150, height: 130))
         
-        let bezie:BezierPath = BezierPath.init()
-        bezie.convert(path)
         
-        _ = bezie.triangles()
+        _ = path.triangles()
     }
     
     func testPerformanceExample() {
         let path:OSBezierPath = OSBezierPath.init(roundedRect: CGRect.init(x: 10, y: 10, width: 150, height: 130), cornerRadius: 20)
         path.appendOval(in: CGRect.init(x: 60, y: 60, width: 100, height: 100))
         
-        let bezie:BezierPath = BezierPath.init()
-        bezie.convert(path)
         
         
         // This is an example of a performance test case.
         self.measure {
             // Put the code you want to measure the time of here.
-            _ = bezie.triangles()
+            _ = path.triangles()
         }
     }
     
