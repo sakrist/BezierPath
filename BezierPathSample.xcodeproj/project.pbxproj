@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,8 +11,8 @@
 		D20A77F21F0E763600F24E6F /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20A77F01F0E75B000F24E6F /* Utilities.swift */; };
 		D20A77F51F0E7F1300F24E6F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20A77F41F0E7EFE00F24E6F /* ViewController.swift */; };
 		D20A77F61F0E7F1400F24E6F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20A77F41F0E7EFE00F24E6F /* ViewController.swift */; };
-		D26347731FBD077D00226303 /* Delaunay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D26347661FBD074B00226303 /* Delaunay.framework */; };
-		D26347761FBD079B00226303 /* Delaunay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D26347601FBD074B00226303 /* Delaunay.framework */; };
+		D20AC4A125CF77D900A0D77B /* Delaunay in Frameworks */ = {isa = PBXBuildFile; productRef = D20AC4A025CF77D900A0D77B /* Delaunay */; };
+		D20AC4AB25CF77F000A0D77B /* Delaunay in Frameworks */ = {isa = PBXBuildFile; productRef = D20AC4AA25CF77F000A0D77B /* Delaunay */; };
 		D26347791FBD111A00226303 /* String+BezierPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26347781FBD111A00226303 /* String+BezierPath.swift */; };
 		D263477A1FBD111A00226303 /* String+BezierPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26347781FBD111A00226303 /* String+BezierPath.swift */; };
 		D2C44EC41F0A3AD500C8F108 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C44EC31F0A3AD500C8F108 /* AppDelegate.swift */; };
@@ -29,62 +29,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		D263475D1FBD074B00226303 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D2B7457E1F0E6C7900B08882 /* Delaunay.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = C41B5BE91C3FFDF8006B601E;
-			remoteInfo = Triangulation;
-		};
-		D263475F1FBD074B00226303 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D2B7457E1F0E6C7900B08882 /* Delaunay.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = C41B5BC11C3FF148006B601E;
-			remoteInfo = Delaunay;
-		};
-		D26347611FBD074B00226303 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D2B7457E1F0E6C7900B08882 /* Delaunay.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = C41B5BCB1C3FF148006B601E;
-			remoteInfo = DelaunayTests;
-		};
-		D26347631FBD074B00226303 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D2B7457E1F0E6C7900B08882 /* Delaunay.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = D204F77D1FBA64480087FB56;
-			remoteInfo = TriangulationTest;
-		};
-		D26347651FBD074B00226303 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D2B7457E1F0E6C7900B08882 /* Delaunay.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = D2A9912A1F4863B600851EE9;
-			remoteInfo = "Delaunay (macOS)";
-		};
-		D26347671FBD074B00226303 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D2B7457E1F0E6C7900B08882 /* Delaunay.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = D2EDF8851FBB5BB5009993CA;
-			remoteInfo = DelaunayTestsMac;
-		};
-		D263476A1FBD077600226303 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D2B7457E1F0E6C7900B08882 /* Delaunay.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = D2A9911C1F4863B600851EE9;
-			remoteInfo = "Delaunay (macOS)";
-		};
-		D26347741FBD079700226303 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D2B7457E1F0E6C7900B08882 /* Delaunay.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = C41B5BC01C3FF148006B601E;
-			remoteInfo = Delaunay;
-		};
 		D2C44ED31F0A3AD600C8F108 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D2C44EB81F0A3AD500C8F108 /* Project object */;
@@ -105,7 +49,6 @@
 		D20A77F01F0E75B000F24E6F /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		D20A77F41F0E7EFE00F24E6F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D26347781FBD111A00226303 /* String+BezierPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+BezierPath.swift"; sourceTree = "<group>"; };
-		D2B7457E1F0E6C7900B08882 /* Delaunay.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Delaunay.xcodeproj; path = Delaunay/Delaunay.xcodeproj; sourceTree = SOURCE_ROOT; };
 		D2C44EC01F0A3AD500C8F108 /* BezierPathSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BezierPathSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2C44EC31F0A3AD500C8F108 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2C44EC71F0A3AD500C8F108 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -132,7 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D26347731FBD077D00226303 /* Delaunay.framework in Frameworks */,
+				D20AC4A125CF77D900A0D77B /* Delaunay in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,7 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D26347761FBD079B00226303 /* Delaunay.framework in Frameworks */,
+				D20AC4AB25CF77F000A0D77B /* Delaunay in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,19 +104,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D26347551FBD074B00226303 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				D263475E1FBD074B00226303 /* Triangulation.app */,
-				D26347601FBD074B00226303 /* Delaunay.framework */,
-				D26347621FBD074B00226303 /* Delaunay.xctest */,
-				D26347641FBD074B00226303 /* TriangulationTest.app */,
-				D26347661FBD074B00226303 /* Delaunay.framework */,
-				D26347681FBD074B00226303 /* DelaunayTestsMac.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		D26347721FBD077D00226303 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -192,7 +122,6 @@
 				D2C44ED51F0A3AD600C8F108 /* BezierPathSampleTests */,
 				D2CA80611F0C36B00030826F /* BezierPathSampleiOS */,
 				D2CA80761F0C36B00030826F /* BezierPathSampleiOSTests */,
-				D2B7457E1F0E6C7900B08882 /* Delaunay.xcodeproj */,
 				D2C44EC11F0A3AD500C8F108 /* Products */,
 				D26347721FBD077D00226303 /* Frameworks */,
 			);
@@ -265,9 +194,12 @@
 			buildRules = (
 			);
 			dependencies = (
-				D263476B1FBD077600226303 /* PBXTargetDependency */,
+				D20AC4A725CF77E400A0D77B /* PBXTargetDependency */,
 			);
 			name = BezierPathSample;
+			packageProductDependencies = (
+				D20AC4A025CF77D900A0D77B /* Delaunay */,
+			);
 			productName = BezierPathSample;
 			productReference = D2C44EC01F0A3AD500C8F108 /* BezierPathSample.app */;
 			productType = "com.apple.product-type.application";
@@ -301,9 +233,12 @@
 			buildRules = (
 			);
 			dependencies = (
-				D26347751FBD079700226303 /* PBXTargetDependency */,
+				D20AC4A925CF77E900A0D77B /* PBXTargetDependency */,
 			);
 			name = BezierPathSampleiOS;
+			packageProductDependencies = (
+				D20AC4AA25CF77F000A0D77B /* Delaunay */,
+			);
 			productName = BezierPathSampleiOS;
 			productReference = D2CA80601F0C36B00030826F /* BezierPathSampleiOS.app */;
 			productType = "com.apple.product-type.application";
@@ -333,7 +268,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0900;
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = "Volodymyr Boichentsov";
 				TargetAttributes = {
 					D2C44EBF1F0A3AD500C8F108 = {
@@ -347,9 +282,11 @@
 					};
 					D2CA805F1F0C36B00030826F = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 1240;
 					};
 					D2CA80721F0C36B00030826F = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 1240;
 						TestTargetID = D2CA805F1F0C36B00030826F;
 					};
 				};
@@ -363,14 +300,11 @@
 				Base,
 			);
 			mainGroup = D2C44EB71F0A3AD500C8F108;
+			packageReferences = (
+				D20AC49F25CF77D900A0D77B /* XCRemoteSwiftPackageReference "Delaunay" */,
+			);
 			productRefGroup = D2C44EC11F0A3AD500C8F108 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = D26347551FBD074B00226303 /* Products */;
-					ProjectRef = D2B7457E1F0E6C7900B08882 /* Delaunay.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				D2C44EBF1F0A3AD500C8F108 /* BezierPathSample */,
@@ -380,51 +314,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		D263475E1FBD074B00226303 /* Triangulation.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = Triangulation.app;
-			remoteRef = D263475D1FBD074B00226303 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		D26347601FBD074B00226303 /* Delaunay.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Delaunay.framework;
-			remoteRef = D263475F1FBD074B00226303 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		D26347621FBD074B00226303 /* Delaunay.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = Delaunay.xctest;
-			remoteRef = D26347611FBD074B00226303 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		D26347641FBD074B00226303 /* TriangulationTest.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = TriangulationTest.app;
-			remoteRef = D26347631FBD074B00226303 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		D26347661FBD074B00226303 /* Delaunay.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Delaunay.framework;
-			remoteRef = D26347651FBD074B00226303 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		D26347681FBD074B00226303 /* DelaunayTestsMac.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = DelaunayTestsMac.xctest;
-			remoteRef = D26347671FBD074B00226303 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		D2C44EBE1F0A3AD500C8F108 /* Resources */ = {
@@ -506,15 +395,13 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		D263476B1FBD077600226303 /* PBXTargetDependency */ = {
+		D20AC4A725CF77E400A0D77B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "Delaunay (macOS)";
-			targetProxy = D263476A1FBD077600226303 /* PBXContainerItemProxy */;
+			productRef = D20AC4A625CF77E400A0D77B /* Delaunay */;
 		};
-		D26347751FBD079700226303 /* PBXTargetDependency */ = {
+		D20AC4A925CF77E900A0D77B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = Delaunay;
-			targetProxy = D26347741FBD079700226303 /* PBXContainerItemProxy */;
+			productRef = D20AC4A825CF77E900A0D77B /* Delaunay */;
 		};
 		D2C44ED41F0A3AD600C8F108 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -581,6 +468,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -641,6 +529,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -663,7 +552,8 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -677,7 +567,10 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = BezierPathSample/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sakrist.BezierPathSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -694,7 +587,10 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = BezierPathSample/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sakrist.BezierPathSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -711,7 +607,11 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = BezierPathSampleTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sakrist.BezierPathSampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -729,7 +629,11 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = BezierPathSampleTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sakrist.BezierPathSampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -745,12 +649,15 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = DHKZ7WR43P;
 				INFOPLIST_FILE = BezierPathSampleiOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sakrist.BezierPathSampleiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -762,12 +669,15 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = DHKZ7WR43P;
 				INFOPLIST_FILE = BezierPathSampleiOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sakrist.BezierPathSampleiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -781,12 +691,16 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = DHKZ7WR43P;
 				INFOPLIST_FILE = BezierPathSampleiOSTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sakrist.BezierPathSampleiOSTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BezierPathSampleiOS.app/BezierPathSampleiOS";
 			};
@@ -800,12 +714,16 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = DHKZ7WR43P;
 				INFOPLIST_FILE = BezierPathSampleiOSTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sakrist.BezierPathSampleiOSTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BezierPathSampleiOS.app/BezierPathSampleiOS";
 				VALIDATE_PRODUCT = YES;
@@ -861,6 +779,40 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D20AC49F25CF77D900A0D77B /* XCRemoteSwiftPackageReference "Delaunay" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sakrist/Delaunay";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D20AC4A025CF77D900A0D77B /* Delaunay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D20AC49F25CF77D900A0D77B /* XCRemoteSwiftPackageReference "Delaunay" */;
+			productName = Delaunay;
+		};
+		D20AC4A625CF77E400A0D77B /* Delaunay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D20AC49F25CF77D900A0D77B /* XCRemoteSwiftPackageReference "Delaunay" */;
+			productName = Delaunay;
+		};
+		D20AC4A825CF77E900A0D77B /* Delaunay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D20AC49F25CF77D900A0D77B /* XCRemoteSwiftPackageReference "Delaunay" */;
+			productName = Delaunay;
+		};
+		D20AC4AA25CF77F000A0D77B /* Delaunay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D20AC49F25CF77D900A0D77B /* XCRemoteSwiftPackageReference "Delaunay" */;
+			productName = Delaunay;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D2C44EB81F0A3AD500C8F108 /* Project object */;
 }
