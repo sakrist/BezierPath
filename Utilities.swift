@@ -33,13 +33,19 @@
 
 import Delaunay
 
+extension Point {
+    func cgPoint() -> CGPoint {
+        return CGPoint(x: x, y: y)
+    }
+}
+
 extension Triangle {
     func toPath() -> CGPath {
         
         let path = CGMutablePath()
-        let point1 = self.v1()
-        let point2 = self.v2()
-        let point3 = self.v3()
+        let point1 = self.point1.cgPoint()
+        let point2 = self.point2.cgPoint()
+        let point3 = self.point3.cgPoint()
         
         path.move(to: point1)
         path.addLine(to: point2)
